@@ -1,5 +1,6 @@
 import React from 'react';
 import { errors, VK } from 'vk-call';
+import List from '../List';
 
 class App extends React.Component {
   constructor(props) {
@@ -67,7 +68,9 @@ class App extends React.Component {
   }
 
   render() {
-    return null;
+    const { images } = this.state;
+
+    return <List images={images}/>;
   }
 }
 
