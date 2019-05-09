@@ -61,6 +61,16 @@ class Attachments extends React.Component {
     this.fetchImages();
   }
 
+  componentDidUpdate(prevProps) {
+    const { peerId } = this.props;
+    const { peerId: prevPeerId } = prevProps;
+
+    if (peerId !== prevPeerId) {
+      this.setState({ images: [] });
+      this.fetchImages();
+    }
+  }
+
   render() {
     const { images } = this.state;
     return <List images={images}/>;
