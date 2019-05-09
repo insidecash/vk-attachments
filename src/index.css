@@ -28,7 +28,7 @@ body {
     text-align: center;
 }
 
-#images-container > img {
+#images-container img {
     width: 16em;
     height: 16em;
     margin: 0.25em;

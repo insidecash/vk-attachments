@@ -10,11 +10,9 @@ class Gallery extends React.Component {
       <div id='images-container'>
         {
           images.map(({ id, links }) =>
-            <img
-              key={id}
-              src={getXSizeUrl(links)}
-              alt="Вложение"
-            />
+            <a key={id} href={links[0]} download>
+              <img src={getXSizeUrl(links)} alt="Вложение"/>
+            </a>
           )
         }
       </div>
