@@ -1,6 +1,6 @@
 import React from 'react';
 
-class List extends React.Component {
+class Gallery extends React.Component {
   render() {
     const { images } = this.props;
 
@@ -20,4 +20,4 @@ class List extends React.Component {
   }
 }
 
-export default List;
+export default Gallery;

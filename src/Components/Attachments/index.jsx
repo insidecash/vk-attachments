@@ -1,6 +1,6 @@
 import React from 'react';
 
-import List from '../List';
+import Gallery from '../Gallery';
 import { errors, VK } from 'vk-call';
 
 class Attachments extends React.Component {
@@ -73,7 +73,7 @@ class Attachments extends React.Component {
 
   render() {
     const { images } = this.state;
-    return <List images={images}/>;
+    return <Gallery images={images}/>;
   }
 }
 
