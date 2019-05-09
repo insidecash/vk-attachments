@@ -10,7 +10,18 @@ class App extends React.Component {
 
   render() {
     const { peerId } = this.state;
-    return <Attachments peerId={peerId}/>;
+
+    return (
+      <React.Fragment>
+        <header>
+
+        </header>
+
+        <main>
+          <Attachments peerId={peerId}/>
+        </main>
+      </React.Fragment>
+    );
   }
 }
 
