@@ -3,6 +3,8 @@ import React from 'react';
 class Gallery extends React.Component {
   render() {
     const { images } = this.props;
+    const getXSizeUrl = links =>
+      links[links.length - 3];
 
     return (
       <div id='images-container'>
@@ -10,7 +12,7 @@ class Gallery extends React.Component {
           images.map(({ id, links }) =>
             <img
               key={id}
-              src={links[0]}
+              src={getXSizeUrl(links)}
               alt="Вложение"
             />
           )

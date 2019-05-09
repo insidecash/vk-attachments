@@ -24,9 +24,18 @@ body {
     overflow: scroll;
 }
 
+#images-container {
+    text-align: center;
+}
+
 #images-container > img {
+    width: 16em;
+    height: 16em;
+    margin: 0.25em;
+    display: inline-block;
     vertical-align: top;
-    max-height: 16em;
+    object-fit: cover;
+    background-color: #f6f8fa;
 }
 
 .select {
