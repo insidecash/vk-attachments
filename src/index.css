@@ -1,0 +1,19 @@
+body {
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0);
+    margin: 0;
+}
+
+#App {
+    height: 100vh;
+}
+
+#images-container {
+    height: 100%;
+    overflow: scroll;
+}
+
+#images-container > img {
+    vertical-align: top;
+    max-height: 16em;
+}
