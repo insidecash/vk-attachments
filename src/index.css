@@ -16,6 +16,10 @@ body {
 }
 
 #App > header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
     height: 4em;
 }
 
@@ -25,22 +29,22 @@ body {
 }
 
 #images-container {
-    text-align: center;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, 16em);
+    grid-gap: 0.5em;
+    padding: 1em;
 }
 
 #images-container img {
     width: 16em;
     height: 16em;
-    margin: 0.25em;
-    display: inline-block;
+    display: block;
     vertical-align: top;
     object-fit: cover;
     background-color: #f6f8fa;
 }
 
 .select {
-    position: absolute;
-    margin: 0 1em;
-    top: 50%;
-    transform: translateY(-50%);
+    width: calc(100% - 1em);
 }
