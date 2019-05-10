@@ -9,6 +9,7 @@ class App extends React.Component {
 
     this.state = {
       token: localStorage.getItem('user_token') || '',
+      attachmentsAreLoading: undefined,
       peerId: null
     };
 
@@ -28,10 +29,14 @@ class App extends React.Component {
   }
 
   render() {
-    const { peerId, token } = this.state;
+    const { peerId, token, attachmentsAreLoading } = this.state;
     const handleSelect = selectedOption =>
       this.setState({
         peerId: selectedOption.value
+      });
+    const setLoading = value =>
+      this.setState({
+        attachmentsAreLoading: value
       });
 
     return (
@@ -46,12 +51,13 @@ class App extends React.Component {
             />
           </form>
 
-          <Conversations peerId={peerId} onSelect={handleSelect}/>
+          <Conversations peerId={peerId} isDisabled={attachmentsAreLoading}
+                         onSelect={handleSelect}/>
         </header>
 
         <main>
           {
-            peerId && <Attachments peerId={peerId}/>
+            peerId && <Attachments peerId={peerId} setLoading={setLoading}/>
           }
         </main>
       </React.Fragment>

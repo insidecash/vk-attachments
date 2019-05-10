@@ -10,7 +10,7 @@ class Attachments extends React.Component {
   }
 
   fetchImages(next) {
-    const { peerId } = this.props;
+    const { peerId, setLoading } = this.props;
 
     const api = new VK({
       token: localStorage.getItem('user_token'),
@@ -36,6 +36,7 @@ class Attachments extends React.Component {
       peer_id: peerId,
       media_type: 'photo',
       ...next && { start_from: next },
+      count: 200,
       preserve_order: 1
     })
       .then(({ items, next_from }) => {
@@ -45,7 +46,9 @@ class Attachments extends React.Component {
             ...processItems(items)
           ]
         }));
-        next_from && this.fetchImages(next_from);
+        next_from ?
+          this.fetchImages(next_from) :
+          setLoading(false);
       })
       .catch(error => {
         const repeat = () => next && this.fetchImages(next);
@@ -58,16 +61,24 @@ class Attachments extends React.Component {
   };
 
   componentDidMount() {
+    const { setLoading } = this.props;
+
     this.fetchImages();
+    setLoading(true);
   }
 
   componentDidUpdate(prevProps) {
-    const { peerId } = this.props;
+    const { peerId, setLoading } = this.props;
     const { peerId: prevPeerId } = prevProps;
 
     if (peerId !== prevPeerId) {
-      this.setState({ images: [] });
-      this.fetchImages();
+      this.setState(
+        { images: [] },
+        () => {
+          this.fetchImages();
+          setLoading(true);
+        }
+      );
     }
   }
 

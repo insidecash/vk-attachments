@@ -72,7 +72,7 @@ class Conversations extends React.Component {
   }
 
   render() {
-    const { peerId, onSelect } = this.props;
+    const { peerId, isDisabled, onSelect } = this.props;
     const { isLoading, options } = this.state;
     const selectedOption = options.find(x => x.value === peerId) || null;
 
@@ -82,6 +82,7 @@ class Conversations extends React.Component {
         value={selectedOption}
         onChange={onSelect}
         isLoading={isLoading}
+        isDisabled={isDisabled}
         isSearchable={true}
         options={options}
       />
