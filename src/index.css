@@ -45,6 +45,35 @@ body {
     background-color: #f6f8fa;
 }
 
+.token-form {
+    width: calc(50% - 1em);
+}
+
+.token-form > input {
+    font-size: inherit;
+    outline: 0 !important;
+    width: 100%;
+    min-height: 38px;
+    box-sizing: border-box;
+    color: hsl(0, 0%, 20%);
+    border: 1px solid hsl(0, 0%, 80%);
+    border-radius: 4px;
+    padding: 0 10px;
+}
+
+.token-form > input::placeholder {
+    color: hsl(0, 0%, 50%);
+}
+
+.token-form > input:hover {
+    border-color: hsl(0, 0%, 70%);
+}
+
+.token-form > input:focus {
+    border-color: #2684FF;
+    box-shadow: 0 0 0 1px #2684FF;
+}
+
 .select {
-    width: calc(100% - 1em);
+    width: calc(50% - 1em);
 }
